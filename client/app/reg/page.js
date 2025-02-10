@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
 
-export default function Registration() {
+export default function SignUp() {
     return (
         <>
-            <h1>Dashboard</h1>
+            <h1>SignUp</h1>
             <p>Tets</p>
         </>
     );
