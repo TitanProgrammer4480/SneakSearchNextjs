@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppinSans.variable} antialiased`}
+        className={`${poppinSans.variable} antialiased min-h-[100vh]`}
       >
         <Header />
         {children}
