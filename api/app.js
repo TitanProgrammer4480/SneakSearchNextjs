@@ -4,7 +4,7 @@ import usersRouter from "./routes/users.router.js";
 
 const app = express();
 
-app.use(usersRouter, "/api/v1/users");
+app.use("/api/v1/users", usersRouter);
 
 app.get("/", (req, res) => {
     res.send("Welcome");
