@@ -1,4 +1,4 @@
-var express = require('express');
+import express from "express";
 var usersRouter = express.Router();
 
 router.get('/', function(req, res, next) {
