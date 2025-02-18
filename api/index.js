@@ -1,10 +1,12 @@
 import express from "express";
 
 import usersRouter from "./routes/users.router.js";
+import authRouter from "./routes/auth.routes.js";
 
 const app = express();
 
 app.use("/api/v1/users", usersRouter);
+app.use("/api/v1/auth", authRouter);
 
 app.get("/", (req, res) => {
     res.send("Welcome");
