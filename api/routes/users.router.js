@@ -21,4 +21,4 @@ router.delete('/:id', function(req, res, next) {
   res.send({"title":"delete a user"});
 });
 
-module.exports = usersRouter;
+export default usersRouter;
