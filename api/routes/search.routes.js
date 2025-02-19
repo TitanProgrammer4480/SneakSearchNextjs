@@ -1,4 +1,5 @@
 import express from "express";
+import googleIt from 'google-it';
 var searchRouter = express.Router();
 
 searchRouter.get('/', function(req, res, next) {
@@ -6,7 +7,11 @@ searchRouter.get('/', function(req, res, next) {
 });
 
 searchRouter.get('/:id', function(req, res, next) {
-    res.send({"title":"use spezific search"});
-  });
+    googleIt({'query': req.params.id}).then(results => {
+      res.send({"results": results});
+     }).catch(e => {
+      res.send({"error": e});
+     })
+});
 
 export default searchRouter;
