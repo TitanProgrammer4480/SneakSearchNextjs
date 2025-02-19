@@ -6,7 +6,7 @@ usersRouter.get('/', function(req, res, next) {
 });
 
 usersRouter.get('/:id', function(req, res, next) {
-  res.send({"title":"get a spezific user"});
+  res.send({"title":"get a spezific user" + req.params.id});
 });
 
 usersRouter.post('/', function(req, res, next) {
