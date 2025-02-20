@@ -1,7 +1,8 @@
 import express from "express";
-var authRouter = express.Router();
 
-authRouter.get('/', function(req, res, next) {
+const authRouter = express.Router();
+
+authRouter.get('/', async (req, res, next) => {
   res.send({"title":"use auth"});
 });
 
