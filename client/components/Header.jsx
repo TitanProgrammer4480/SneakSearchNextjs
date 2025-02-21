@@ -9,7 +9,7 @@ function Header() {
         </div>
         <div className='mr-10 w-[30%] flex justify-around'>
             <Link href="/login" className='pr-2 pl-2 pt-1 pb-1 rounded-[25%] border-2 border-white border-solid'>Login</Link>
-            <Link href="/reg" className='pr-2 pl-2 pt-1 pb-1 rounded-[25%] border-2 border-white border-solid'>Sign In</Link>
+            <Link href="/signup" className='pr-2 pl-2 pt-1 pb-1 rounded-[25%] border-2 border-white border-solid'>Sign In</Link>
         </div>
     </header>
   )

@@ -5,9 +5,9 @@ export default function SignUp() {
     async function onLogin(event) {
 
         const formData = new FormData(event.target)
-        const response = await fetch("", {
+        const response = await fetch("http://localhost:8000/api/v1/users", {
           method: "POST",
-          body: formData
+          body: JSON.stringify(Object.fromEntries(formData))
         })
     
         const data = await response.json()
@@ -21,12 +21,13 @@ export default function SignUp() {
     return (
         <>
             <h1>SignUp</h1>
-            <p>Tets</p>
             <form onSubmit={onLogin}>
                 <label htmlFor="name">Your Name:</label><br/>
-                <input type="text" id="name" name="name" required/><br/>
+                <input type="text" id="name" name="name" minLength="2" maxLength="50" required/><br/>
+                <label htmlFor="email">Your Email:</label><br/>
+                <input type="email" id="email" name="email" required/><br/>
                 <label htmlFor="password">Your Password:</label><br/>
-                <input type="password" id="password" name="password" required/><br/>
+                <input type="password" id="password" name="password" minLength="6" required/><br/>
                 <button type="submit">Login</button>
             </form>
         </>
