@@ -1,16 +1,19 @@
 import express from "express";
-import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 
 import usersRouter from "./routes/users.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import searchRouter from "./routes/search.routes.js";
 import connectTODatabase from "./database/mongodb.js";
+import errorMiddleware from "./middleware/error.middleware.js";
 
 const app = express();
 
-app.use(bodyParser.json({type: "*/*"}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+app.use(errorMiddleware);
 
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/auth", authRouter);
