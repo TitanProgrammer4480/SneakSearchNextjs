@@ -3,20 +3,27 @@
 export default function SignUp() {
 
     async function onLogin(event) {
-
-        const formData = new FormData(event.target)
-        const response = await fetch("http://localhost:8000/api/v1/users", {
-          method: "POST",
-          body: JSON.stringify(Object.fromEntries(formData))
+      
+      const formData = new FormData(event.target)
+      const response = await fetch("http://localhost:8000/api/v1/auth/sign-up", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          password: formData.get("password")
         })
+      })
     
-        const data = await response.json()
-        if(data) {
-          console.log(data)
-        } else {
-          console.log(data)
-        }
+      const data = await response.json()
+      if(data) {
+        console.log(data)
+      } else {
+        console.log(data)
       }
+    }
 
     return (
         <>

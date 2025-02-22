@@ -1,5 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 import usersRouter from "./routes/users.routes.js";
 import authRouter from "./routes/auth.routes.js";
@@ -8,6 +9,8 @@ import connectTODatabase from "./database/mongodb.js";
 import errorMiddleware from "./middleware/error.middleware.js";
 
 const app = express();
+
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
