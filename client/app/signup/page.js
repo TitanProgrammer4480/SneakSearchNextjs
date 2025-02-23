@@ -1,9 +1,11 @@
 "use client"
 
+import { redirect } from "next/navigation";
+
 export default function SignUp() {
 
     async function onLogin(event) {
-      
+      event.preventDefault();
       const formData = new FormData(event.target)
       const response = await fetch("http://localhost:8000/api/v1/auth/sign-up", {
         method: "POST",
@@ -16,10 +18,11 @@ export default function SignUp() {
           password: formData.get("password")
         })
       })
-    
+      console.log(response);
       const data = await response.json()
-      if(data) {
-        console.log(data)
+      console.log(response.status);
+      if(response.status == 201) {
+        redirect("/dashboard");
       } else {
         console.log(data)
       }
